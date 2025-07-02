@@ -4,7 +4,7 @@ import { EyeCloseIcon, EyeIcon } from "../../icons";
 import Label from "../form/Label";
 import Input from "../form/input/InputField";
 import Checkbox from "../form/input/Checkbox";
-import { registerUser } from "../../config/liveApi";
+import { registerUser } from "../../config/liveApi.js";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
@@ -16,6 +16,8 @@ export default function SignUpForm() {
     lastName: "",
     email: "",
     password: "",
+    phone: "",
+    gender: "",
   });
 
   const navigate = useNavigate();
@@ -82,6 +84,43 @@ export default function SignUpForm() {
                       setFormData({ ...formData, lastName: e.target.value })
                     }
                   />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                {/* First Name */}
+                <div className="sm:col-span-1">
+                  <Label>
+                    Phone Numer<span className="text-error-500">*</span>
+                  </Label>
+                  <Input
+                    type="number"
+                    name="phoneNumber"
+                    placeholder="Enter your Phone Number"
+                    value={formData.phone}
+                    onChange={(e) =>
+                      setFormData({ ...formData, phone: e.target.value })
+                    }
+                  />
+                </div>
+
+                {/* Last Name */}
+                <div className="sm:col-span-1">
+                  <Label>
+                    Gender<span className="text-error-500">*</span>
+                  </Label>
+                  <select
+                    name="gender"
+                    value={formData.gender}
+                    onChange={(e) =>
+                      setFormData({ ...formData, gender: e.target.value })
+                    }
+                    className="w-full px-3 py-2.5 mt-1 text-sm border rounded-lg dark:bg-gray-800 dark:text-white"
+                  >
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
                 </div>
               </div>
 

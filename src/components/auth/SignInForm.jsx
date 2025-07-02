@@ -10,9 +10,6 @@ import { useNavigate } from "react-router-dom";
 import { loginUser } from "../../config/liveApi";
 import { useAuth } from "./AuthContext";
 
-
-
-
 export default function SignInForm() {
   const { login } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
@@ -31,11 +28,13 @@ export default function SignInForm() {
     }
 
     try {
-     await loginUser(formData).then(res => {
-  login(res.token); 
-  toast.success("Login successful!");
-  navigate("/", { replace: true });
-});
+      const response = await loginUser(formData);
+      console.log(response, "response from loginUser");
+      login(response.token);
+      toast.success("Login successful!");
+      localStorage.setItem("authToken", response.token);
+      localStorage.setItem("userEmail", response.user.email);
+      navigate("/", { replace: true });
     } catch (err) {
       toast.error(err?.response?.data?.message || "Login failed");
     }

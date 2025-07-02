@@ -9,6 +9,7 @@ import {
   ListIcon,
   PlugInIcon,
   TableIcon,
+  TimeIcon,
   UserCircleIcon,
 } from "../icons";
 import { useSidebar } from "../context/SidebarContext";
@@ -23,22 +24,27 @@ const navItems: NavItem[] = [
   {
     icon: <GridIcon />,
     name: "Dashboard",
-    subItems: [{ name: "Ecommerce", path: "/", pro: false }],
+    subItems: [{ name: "Dashboard", path: "/", pro: false }],
+  },
+  {
+    name: "Courses",
+    icon: <TableIcon />,
+    subItems: [{ name: "List Of Course", path: "/course", pro: false }],
+  },
+  {
+    name: "Subject",
+    icon: <ListIcon />,
+    subItems: [{ name: "List Of Subject", path: "/subject", pro: false }],
+  },
+    {
+    name: "Lecture",
+    icon: <TimeIcon/>,
+    subItems: [{ name: "List Of Lecture", path: "/lecture", pro: false }],
   },
   {
     icon: <UserCircleIcon />,
     name: "User Profile",
     path: "/profile",
-  },
-  {
-    name: "Forms",
-    icon: <ListIcon />,
-    subItems: [{ name: "Form Elements", path: "/form-elements", pro: false }],
-  },
-  {
-    name: "Tables",
-    icon: <TableIcon />,
-    subItems: [{ name: "Basic Tables", path: "/basic-tables", pro: false }],
   },
 ];
 

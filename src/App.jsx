@@ -3,14 +3,13 @@ import SignIn from "./pages/AuthPages/SignIn";
 import SignUp from "./pages/AuthPages/SignUp";
 import NotFound from "./pages/OtherPage/NotFound";
 import UserProfiles from "./pages/UserProfiles";
-import BasicTables from "./pages/Tables/BasicTables";
-import FormElements from "./pages/Forms/FormElements";
-import Blank from "./pages/Blank";
 import AppLayout from "./layout/AppLayout";
 import { ScrollToTop } from "./components/common/ScrollToTop";
 import Home from "./pages/Dashboard/Home";
 import { ProtectedRoute, PublicRoute } from "./components/ProtectedRoute";
-import { useAuth } from "./components/auth/AuthContext";
+import Courses from "./components/Courses/Index";
+import Subject from "./components/Subjects/index";
+import Lecture from "./components/Lecture/Index";
 
  
 export default function App() {
@@ -28,9 +27,9 @@ export default function App() {
         >
           <Route index path="/" element={<Home />} />
           <Route path="/profile" element={<UserProfiles />} />
-          <Route path="/blank" element={<Blank />} />
-          <Route path="/form-elements" element={<FormElements />} />
-          <Route path="/basic-tables" element={<BasicTables />} />
+          <Route path="/course" element={<Courses />} />
+          <Route path="/subject" element={<Subject />} />
+          <Route path="/lecture" element={<Lecture />} />
         </Route>
 
         {/* Public Auth Routes */}

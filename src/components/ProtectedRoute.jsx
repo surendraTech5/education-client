@@ -1,13 +1,12 @@
-// components/ProtectedRoute.jsx
 import { Navigate } from "react-router-dom";
-import { useAuth } from "./auth/AuthContext";
+import { useAuth } from "../components/auth/AuthContext.jsx";
 
-export function ProtectedRoute({ children }) {
+export const ProtectedRoute = ({ children }) => {
   const { isAuthenticated } = useAuth();
-  return isAuthenticated ? children : <Navigate to="/signin" replace />;
-}
+  return isAuthenticated ? children : <Navigate to="/signin" />;
+};
 
-export function PublicRoute({ children }) {
+export const PublicRoute = ({ children }) => {
   const { isAuthenticated } = useAuth();
-  return !isAuthenticated ? children : <Navigate to="/" replace />;
-}
+  return !isAuthenticated ? children : <Navigate to="/" />;
+};
